@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio vehículos</title>
+    <link rel="stylesheet" href="stylescars.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+</head>
+
+<body>
+<!---------------------- FORM CAR---------------------->
+    
+    <div class="container">
+        <div class="form__top">
+            <h1>Ejercicio vehículos</h1>
+        </div>
+        <form class="form__reg" id="carForm" onsubmit="validation1()">       
+            <input class="input" type="text" id="plate" placeholder="Matrícula" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <input class="input" type="text" id="brand" placeholder="MARCA VEHÍCULO" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">            
+            <input class="input" type="text" id="color" placeholder="COLOR VEHÍCULO" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+            <div class="btn__form">
+                <input class="btn__submit" type="button" onclick="submitCar()" value="Continuar">
+            </div>  
+        </form>
+    </div>
+    
+<!---------------------- CAR INFO ---------------------->
+
+    <div class="" id="containerInfo">
+            <h2 id="titleInfo">Información del vehiculo:</h2>
+            <p id="carInfo"></p>
+    </div>
+
+<!---------------------- FORM WHEELS ---------------------->
+    
+    <div class="container" id="wheelForm">
+        <div class="form__top">
+            <h2>Detalles de ruedas</h2>
+        </div>
+        <form class="form__reg" onsubmit="validation2()"> 
+            <input class="input" type="text" id="wheel1" placeholder="Diámetro Rueda 1: de 0.4 a 2">
+            <input class="input_" type="text" id="brandWheel1" placeholder="Marca Rueda 1">            
+            <input class="input" type="text" id="wheel2" placeholder="Diámetro Rueda 2: de 0.4 a 2">          
+            <input class="input_" type="text" id="brandWheel2" placeholder="Marca Rueda 2">            
+            <input class="input" type="text" id="wheel3" placeholder="Diámetro Rueda 3: de 0.4 a 2">
+            <input class="input_" type="text" id="brandWheel3" placeholder="Marca Rueda 3">            
+            <input class="input" type="text" id="wheel4" placeholder="Diámetro Rueda 4: de 0.4 a 2">
+            <input class="input_" type="text" id="brandWheel4" placeholder="Marca Rueda 4">
+            <div class="btn__form">
+                <input class="btn__submit" type="button" onclick="submitWheels()" value="GUARDAR">
+            </div>  
+        
+        </form>
+    </div>
+
+<!---------------------- WHEELS INFO ---------------------->
+
+    <div class="" id="containerWheels">
+        <p id="wheelsInfo1"></p>
+        <p id="wheelsInfo2"></p>
+        <p id="wheelsInfo3"></p>
+        <p id="wheelsInfo4"></p>
+    </div>
+
+</body>
+</html>
