@@ -6,6 +6,7 @@ function createCar(plate:string, brand:string, color:string){
 
 //En prémer el botó "Create car" crea el cotxe, mostra els resultats i amaga carForm.   
 function submitCar(){ 
+    //event.preventDefault();
     const platebox = (<HTMLInputElement>document.getElementById("plate")).value;
     const brandbox = (<HTMLInputElement>document.getElementById("brand")).value;
     const colorbox = (<HTMLInputElement>document.getElementById("color")).value;
@@ -29,9 +30,9 @@ function showCar(){
 }
 
 function showWheelForm(){
-    document.getElementById("carForm").style.display = "none";
-    document.getElementById("wheelForm").style.display = "block";
-    document.getElementById("titleInfo").style.display = "none";
+    (<HTMLInputElement>document.getElementById("carForm")).style.display = "none";
+    (<HTMLInputElement>document.getElementById("wheelForm")).style.display = "block";
+    (<HTMLInputElement>document.getElementById("titleInfo")).style.display = "none";
 }
 
 //Condició general per validar el diàmetre de les rodes.
@@ -69,7 +70,6 @@ function submitWheels(){
         }
 
         if (num_errores>0) {
-            alert("Introduce valores válidos!");
             return false;
         }
 
@@ -88,7 +88,7 @@ function submitWheels(){
 
 }
 function isValidDiameter(diameter: number){
-    event.preventDefault();
+    
     if(diameter >= 0.4 && diameter <= 2){
         return true;
     }else{
@@ -110,7 +110,7 @@ function showWheels(){
 }
 
 function hideWheelsForm(){
-    document.getElementById("wheelForm").style.display = "none";
+    (<HTMLInputElement>document.getElementById("wheelForm")).style.display = "none";
 }
 
 /*

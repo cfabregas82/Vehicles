@@ -1,9 +1,11 @@
+"use strict";
 var car;
 function createCar(plate, brand, color) {
     return new Car(plate, color, brand);
 }
 //En prémer el botó "Create car" crea el cotxe, mostra els resultats i amaga carForm.   
 function submitCar() {
+    //event.preventDefault();
     var platebox = document.getElementById("plate").value;
     var brandbox = document.getElementById("brand").value;
     var colorbox = document.getElementById("color").value;
@@ -60,7 +62,6 @@ function submitWheels() {
         num_errores++;
     }
     if (num_errores > 0) {
-        alert("Introduce valores válidos!");
         return false;
     }
     var wheel1 = new Wheel(Number(diam_wheel1), (brandWheel1));
@@ -75,7 +76,6 @@ function submitWheels() {
     hideWheelsForm();
 }
 function isValidDiameter(diameter) {
-    event.preventDefault();
     if (diameter >= 0.4 && diameter <= 2) {
         return true;
     }
