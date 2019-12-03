@@ -21,7 +21,7 @@ function submitCar(){
         showCar();
         showWheelForm();
     }
-}
+} 
 
 function showCar(){ 
     const carinfo = (<HTMLInputElement>document.getElementById("carInfo"));
@@ -31,17 +31,10 @@ function showCar(){
 function showWheelForm(){
     document.getElementById("carForm").style.display = "none";
     document.getElementById("wheelForm").style.display = "block";
-    document.getElementById("titleInfo").style.display = "block";
+    document.getElementById("titleInfo").style.display = "none";
 }
 
 //Condició general per validar el diàmetre de les rodes.
-function testDiameter(diameter: number){
-    if(diameter > 0.4 && diameter < 2){
-        return true;
-    }else{
-        return false;
-    }
-}
 
 function submitWheels(){    
     // Marca de les rodes
@@ -49,6 +42,7 @@ function submitWheels(){
     var brandWheel2 = (<HTMLInputElement>document.getElementById("brandWheel2")).value;
     var brandWheel3 = (<HTMLInputElement>document.getElementById("brandWheel3")).value;
     var brandWheel4 = (<HTMLInputElement>document.getElementById("brandWheel4")).value;
+    var num_errores = 0;
 
     // Diàmetre de les rodes
     var diam_wheel1 = Number((<HTMLInputElement>document.getElementById("wheel1")).value);
@@ -56,17 +50,27 @@ function submitWheels(){
     var diam_wheel3 = Number((<HTMLInputElement>document.getElementById("wheel3")).value);
     var diam_wheel4 = Number((<HTMLInputElement>document.getElementById("wheel4")).value);
 
-        if(!testDiameter(Number(diam_wheel1))){
+
+        if(!isValidDiameter(Number(diam_wheel1))){
             alert("El diámetro de la rueda 1 no es correcto!");
+            num_errores++;
         }
-        if(!testDiameter(Number(diam_wheel2))){
+        if(!isValidDiameter(Number(diam_wheel2))){
             alert("El diámetro de la rueda 2 no es correcto!");
+            num_errores++;
         }
-        if(!testDiameter(Number(diam_wheel3))){
+        if(!isValidDiameter(Number(diam_wheel3))){
             alert("El diámetro de la rueda 3 no es correcto!");
+            num_errores++;
         }
-        if(!testDiameter(Number(diam_wheel4))){
+        if(!isValidDiameter(Number(diam_wheel4))){
             alert("El diámetro de la rueda 4 no es correcto!");
+            num_errores++;
+        }
+
+        if (num_errores>0) {
+            alert("Introduce valores válidos!");
+            return false;
         }
 
     var wheel1 = new Wheel(Number(diam_wheel1), (brandWheel1));
@@ -81,6 +85,15 @@ function submitWheels(){
 
     showWheels();
     hideWheelsForm();
+
+}
+function isValidDiameter(diameter: number){
+    event.preventDefault();
+    if(diameter >= 0.4 && diameter <= 2){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 function showWheels(){
